@@ -1,0 +1,2 @@
+venv=ftde2-project1-1
+ver=3.10
