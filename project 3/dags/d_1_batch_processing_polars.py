@@ -5,14 +5,14 @@ from airflow.operators.python import PythonOperator
 
 from datetime import datetime
 
+project_folder = '/opt/airflow/scripts'
+python_path = '/opt/airflow/scripts/venv/bin/python'
+
 def fun_total_film_get_data(**kwargs):
     pass
 
 def fun_total_film_load_data(**kwargs):
     pass
-
-project_folder = '/home/de-fikri/de-series/mini_project_3/scripts'
-python_path = '/home/de-fikri/de-series/mini_project_3/scripts/venv/bin/python'
 
 with DAG(
     dag_id='d_1_batch_processing_polars',
@@ -27,12 +27,12 @@ with DAG(
 
     op_top_countries_get_data = BashOperator(
         task_id='top_countries_get_data',
-        bash_command=f'{python_path} {project_folder}/get_data.py'
+        bash_command=f'{python_path} {project_folder}/get_data_countries.py'
     )
 
     op_top_countries_load_data = BashOperator(
         task_id='top_countries_load_data',
-        bash_command=f'{python_path} {project_folder}/load_data.py'
+        bash_command=f'{python_path} {project_folder}/load_data_countries.py'
     )
 
     op_total_film_get_data = PythonOperator(

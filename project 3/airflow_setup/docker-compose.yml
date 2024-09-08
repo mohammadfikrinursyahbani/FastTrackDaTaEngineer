@@ -22,8 +22,11 @@ services:
     user: "${AIRFLOW_UID}:0"
     env_file:
       - .env
+    environment:
+      - AIRFLOW__CORE__VIRTUALENV_PYTHON=/home/de-fikri/de-series/mini_project_3/scripts/venv/bin/python3
     volumes:
       - /home/de-fikri/de-series/mini_project_3/dags:/opt/airflow/dags
+      - /home/de-fikri/de-series/mini_project_3/scripts:/opt/airflow/scripts
       - /home/de-fikri/de-series/mini_project_3/logs:/opt/airflow/logs
       - /home/de-fikri/de-series/mini_project_3/plugins:/opt/airflow/plugins
     depends_on:
@@ -42,8 +45,11 @@ services:
     user: "${AIRFLOW_UID}:0"
     env_file:
       - .env
+    environment:
+      - AIRFLOW__CORE__VIRTUALENV_PYTHON=/home/de-fikri/de-series/mini_project_3/scripts/venv/bin/python3
     volumes:
       - /home/de-fikri/de-series/mini_project_3/dags:/opt/airflow/dags
+      - /home/de-fikri/de-series/mini_project_3/scripts:/opt/airflow/scripts
       - /home/de-fikri/de-series/mini_project_3/logs:/opt/airflow/logs
       - /home/de-fikri/de-series/mini_project_3/plugins:/opt/airflow/plugins
     depends_on:
@@ -76,6 +82,7 @@ services:
       _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD}
     volumes:
       - /home/de-fikri/de-series/mini_project_3/dags:/opt/airflow/dags
+      - /home/de-fikri/de-series/mini_project_3/scripts:/opt/airflow/scripts
       - /home/de-fikri/de-series/mini_project_3/logs:/opt/airflow/logs
       - /home/de-fikri/de-series/mini_project_3/plugins:/opt/airflow/plugins
     container_name: airflow-init
