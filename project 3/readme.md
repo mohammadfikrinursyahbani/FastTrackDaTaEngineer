@@ -1,6 +1,6 @@
 # ETL Pipeline
 
-![Pipeline](Image%20Pipeline.png)
+![Pipeline](Pipeline.png)
 
 ## Prerequisites
 
